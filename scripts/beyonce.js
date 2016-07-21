@@ -1,5 +1,12 @@
+// You have installed new dependencies 
+// "hubot-spotify-search": "^1.0.0",
+// "hubot-youtube": "^1.0.2",
+// "ticketmaster": "^0.4.0"
+// but you haven't required
+
 var play, spotify;
 
+//  you set an enviroment variable, but it's not hidden
 process.env.HUBOT_YOUTUBE_API_KEY = "AIzaSyCQ5QjcrRFIFy5Z4P9PuCSO78xN_kKA6vQ";
 
 process.env.HUBOT_YOUTUBE_HEAR = true;
@@ -15,6 +22,7 @@ module.exports = function(robot) {
 
   // Who Runs the World, Hotsauce
 
+// this works really well! 
   robot.hear(/who runs the world/i, function(res) {
     return res.send("girls http://giphy.com/gifs/girl-beyonce-Pdag4PIGsrniw");
   });
@@ -98,7 +106,7 @@ spotify = function(robot, msg, query, type, callback) {
       type: 'video',
       maxResults: maxResults,
       q: query,
-      key: AIzaSyCQ5QjcrRFIFy5Z4P9PuCSO78xN_kKA6vQ
+      key: AIzaSyCQ5QjcrRFIFy5Z4P9PuCSO78xN_kKA6vQ // this needs to be a string
     }).get()(function(err, res, body) {
       var error, video, videos;
       robot.logger.debug(body);
